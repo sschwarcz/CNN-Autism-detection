@@ -34,7 +34,7 @@ def getPlotGraphs():
 def filterdata():
   WIDTH = 0
   HEIGHT = 0
-  path = r'C:\Users\Dell\Desktop\CNN\autisme_detection\train\autistic'
+  path = r'\train\autistic'
   flag = 0
   all_images1 = []
   for image_path in os.listdir(path):
@@ -48,7 +48,7 @@ def filterdata():
   x_train1 = np.array(all_images1)
   y_train1 = np.ones(x_train1.shape[0])
 
-  path = r'C:\Users\Dell\Desktop\CNN\autisme_detection\train\non_autistic'
+  path = r'train\non_autistic'
   all_images2 = []
   for image_path in os.listdir(path):
     img = io.imread(path + "\\" + image_path , as_gray=True)
@@ -66,7 +66,7 @@ def filterdata():
 
   #####################################valid
 
-  path = r'C:\Users\Dell\Desktop\CNN\autisme_detection\valid\autistic'
+  path = r'valid\autistic'
 
   all_images1 = []
   for image_path in os.listdir(path):
@@ -77,7 +77,7 @@ def filterdata():
   x_valid1 = np.array(all_images1)
   y_valid1 = np.ones(x_valid1.shape[0])
 
-  path = r'C:\Users\Dell\Desktop\CNN\autisme_detection\valid\non_autistic'
+  path = r'valid\non_autistic'
   all_images2 = []
   for image_path in os.listdir(path):
     img = io.imread(path + "\\" + image_path , as_gray=True)
@@ -118,7 +118,7 @@ epoch =7
 history = model.fit(x_train, y_train, epochs=epoch,batch_size=10,validation_data=(x_valid, y_valid))
 
 getPlotGraphs()
-model.save(r'C:\Users\Dell\Desktop\CNN\Model2')
+model.save(r'CNN\Model2')
 
 test_loss, test_acc = model.evaluate(x_valid,  y_valid, verbose=2)
 
